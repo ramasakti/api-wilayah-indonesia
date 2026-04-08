@@ -1,0 +1,360 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Wilayah Indonesia (Provinsi, Kabupaten, Kecamatan, Desa).",
+        "title": "Indonesia Wilayah API",
+        "contact": {
+            "name": "API Support",
+            "url": "https://github.com/ramasakti/api-wilayah-indonesia"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api",
+    "paths": {
+        "/district/{id}": {
+            "get": {
+                "description": "Get specific district information",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "districts"
+                ],
+                "summary": "Get district details by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "District ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.District"
+                        }
+                    }
+                }
+            }
+        },
+        "/districts/{id}": {
+            "get": {
+                "description": "Get list of districts in a specific regency",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "districts"
+                ],
+                "summary": "Get districts by regency ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Regency ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.District"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/province/{id}": {
+            "get": {
+                "description": "Get specific province information",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "provinces"
+                ],
+                "summary": "Get province details by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Province ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.Province"
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces": {
+            "get": {
+                "description": "Get list of all provinces in Indonesia",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "provinces"
+                ],
+                "summary": "Get all provinces",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Province"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces.json": {
+            "get": {
+                "description": "Get list of all provinces in Indonesia",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "provinces"
+                ],
+                "summary": "Get all provinces",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Province"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/regencies/{id}": {
+            "get": {
+                "description": "Get list of regencies in a specific province",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "regencies"
+                ],
+                "summary": "Get regencies by province ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Province ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Regency"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/regency/{id}": {
+            "get": {
+                "description": "Get specific regency information",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "regencies"
+                ],
+                "summary": "Get regency details by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Regency ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.Regency"
+                        }
+                    }
+                }
+            }
+        },
+        "/village/{id}": {
+            "get": {
+                "description": "Get specific village information",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "villages"
+                ],
+                "summary": "Get village details by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Village ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.Village"
+                        }
+                    }
+                }
+            }
+        },
+        "/villages/{id}": {
+            "get": {
+                "description": "Get list of villages in a specific district",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "villages"
+                ],
+                "summary": "Get villages by district ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "District ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Village"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.District": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "regency_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.Province": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.Regency": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "province_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.Village": {
+            "type": "object",
+            "properties": {
+                "district_id": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

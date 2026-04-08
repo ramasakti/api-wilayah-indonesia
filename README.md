@@ -1,12 +1,43 @@
-API Data Wilayah Indonesia
-==========================
+API Data Wilayah Indonesia (Golang Rewrite)
+==========================================
 
-Repository ini berisi source code untuk generate (REST) API statis berisi data wilayah Indonesia
-serta perintah untuk mendeploynya ke _static hosting_ [Github Page](https://pages.github.com/).
+> [!IMPORTANT]
+> Proyek ini adalah hasil **rewrite ke Go (Golang)** dari repositori asli [emsifa/api-wilayah-indonesia](https://github.com/emsifa/api-wilayah-indonesia). 
+> Berbeda dengan versi aslinya yang menggunakan API statis, versi ini menggunakan server Go dinamis yang jauh lebih efisien untuk dijalankan di lingkungan Docker.
 
-Demo: [https://emsifa.github.io/api-wilayah-indonesia](https://emsifa.github.io/api-wilayah-indonesia)
+## Dokumentasi API (Swagger)
+
+Aplikasi ini dilengkapi dengan dokumentasi interaktif menggunakan Swagger UI. 
+Setelah menjalankan server, Anda dapat mengakses dokumentasi di:
+`http://localhost:8080/swagger/index.html`
+
+## Pengembangan
+
+Aplikasi dikembangkan menggunakan:
+* **Go (Golang)**: Bahasa pemrograman utama.
+* **Gin**: Framework web untuk performa tinggi.
+* **Swagger**: Untuk dokumentasi API otomatis.
+* **Docker**: Untuk isolasi dan kemudahan deployment.
+
+## Cara Menjalankan
+
+### Menggunakan Docker Compose (Direkomendasikan)
+Cukup jalankan perintah berikut di direktori utama:
+```bash
+docker compose up -d
+```
+API akan tersedia di port `8080`.
+
+### Menjalankan Lokal
+1. Pastikan Anda telah memasang Go (versi 1.25 atau lebih baru).
+2. Masuk ke direktori aplikasi: `cd app`
+3. Jalankan aplikasi: `go run .`
+
+## Versi Asli (Static API)
+Informasi di bawah ini adalah keterangan cara kerja dari versi asli (static API). Pada versi Go ini, CSV dibaca langsung ke memori saat startup.
 
 #### Apa yang dimaksud API statis? 
+...
 
 API statis adalah API yang _endpoint_-nya terdiri dari file statis.
 

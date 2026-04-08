@@ -1,0 +1,236 @@
+basePath: /api
+definitions:
+  main.District:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      regency_id:
+        type: string
+    type: object
+  main.Province:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  main.Regency:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      province_id:
+        type: string
+    type: object
+  main.Village:
+    properties:
+      district_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    name: API Support
+    url: https://github.com/ramasakti/api-wilayah-indonesia
+  description: API Wilayah Indonesia (Provinsi, Kabupaten, Kecamatan, Desa).
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  title: Indonesia Wilayah API
+  version: "1.0"
+paths:
+  /district/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get specific district information
+      parameters:
+      - description: District ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.District'
+      summary: Get district details by ID
+      tags:
+      - districts
+  /districts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get list of districts in a specific regency
+      parameters:
+      - description: Regency ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.District'
+            type: array
+      summary: Get districts by regency ID
+      tags:
+      - districts
+  /province/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get specific province information
+      parameters:
+      - description: Province ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Province'
+      summary: Get province details by ID
+      tags:
+      - provinces
+  /provinces:
+    get:
+      consumes:
+      - application/json
+      description: Get list of all provinces in Indonesia
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Province'
+            type: array
+      summary: Get all provinces
+      tags:
+      - provinces
+  /provinces.json:
+    get:
+      consumes:
+      - application/json
+      description: Get list of all provinces in Indonesia
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Province'
+            type: array
+      summary: Get all provinces
+      tags:
+      - provinces
+  /regencies/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get list of regencies in a specific province
+      parameters:
+      - description: Province ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Regency'
+            type: array
+      summary: Get regencies by province ID
+      tags:
+      - regencies
+  /regency/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get specific regency information
+      parameters:
+      - description: Regency ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Regency'
+      summary: Get regency details by ID
+      tags:
+      - regencies
+  /village/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get specific village information
+      parameters:
+      - description: Village ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Village'
+      summary: Get village details by ID
+      tags:
+      - villages
+  /villages/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get list of villages in a specific district
+      parameters:
+      - description: District ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Village'
+            type: array
+      summary: Get villages by district ID
+      tags:
+      - villages
+swagger: "2.0"
